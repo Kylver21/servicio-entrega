@@ -1,0 +1,12 @@
+<section class="product-list">
+  @for(producto of productos$ | async; track producto.nombre){
+  <app-product-card
+    [imagenUrl]="producto.imagenUrl"
+    [nombre]="producto.nombre"
+    [precio]="producto.precio"
+  >
+  </app-product-card>
+  }@empty{
+  <h1>El arreglo esta vacío</h1>
+  }
+</section>

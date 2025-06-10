@@ -1,0 +1,74 @@
+[
+  {
+    "nombre": "Echo Dot (5ta Gen)",
+    "imagenUrl": "https://m.media-amazon.com/images/I/61u48FEsQKL._AC_SL1000_.jpg",
+    "precio": 49.99,
+    "categoria": "Electrónica"
+  },
+  {
+    "nombre": "Kindle Paperwhite",
+    "imagenUrl": "https://m.media-amazon.com/images/I/61nRZTfPYbL._AC_SL1000_.jpg",
+    "precio": 129.99,
+    "categoria": "Electrónica"
+  },
+  {
+    "nombre": "Apple AirPods Pro",
+    "imagenUrl": "https://m.media-amazon.com/images/I/71bhWgQK-cL._AC_SL1500_.jpg",
+    "precio": 199.99,
+    "categoria": "Audio"
+  },
+  {
+    "nombre": "Samsung Galaxy S23",
+    "imagenUrl": "https://m.media-amazon.com/images/I/71qZyM7nHIL._AC_SL1500_.jpg",
+    "precio": 799.99,
+    "categoria": "Celulares"
+  },
+  {
+    "nombre": "Instant Pot Duo 7-en-1",
+    "imagenUrl": "https://m.media-amazon.com/images/I/81iBESgq5-L._AC_SL1500_.jpg",
+    "precio": 89.99,
+    "categoria": "Cocina"
+  },
+  {
+    "nombre": "Fitbit Charge 5",
+    "imagenUrl": "https://m.media-amazon.com/images/I/61VXb-0u5PL._AC_SL1500_.jpg",
+    "precio": 149.95,
+    "categoria": "Deportes"
+  },
+  {
+    "nombre": "Sony WH-1000XM4",
+    "imagenUrl": "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+    "precio": 348.0,
+    "categoria": "Audio"
+  },
+  {
+    "nombre": "Nintendo Switch",
+    "imagenUrl": "https://m.media-amazon.com/images/I/61-PblYntsL._AC_SL1500_.jpg",
+    "precio": 299.99,
+    "categoria": "Videojuegos"
+  },
+  {
+    "nombre": "Logitech MX Master 3S",
+    "imagenUrl": "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
+    "precio": 99.99,
+    "categoria": "Computadoras"
+  },
+  {
+    "nombre": "Fire TV Stick 4K",
+    "imagenUrl": "https://m.media-amazon.com/images/I/51CgKGfMelL._AC_SL1000_.jpg",
+    "precio": 39.99,
+    "categoria": "Electrónica"
+  },
+  {
+    "nombre": "Mochila Samsonite",
+    "imagenUrl": "https://m.media-amazon.com/images/I/81p1L85KinL._AC_SL1500_.jpg",
+    "precio": 59.99,
+    "categoria": "Accesorios"
+  },
+  {
+    "nombre": "Cafetera Nespresso Vertuo",
+    "imagenUrl": "https://m.media-amazon.com/images/I/71Q9d6N7xkL._AC_SL1500_.jpg",
+    "precio": 179.0,
+    "categoria": "Cocina"
+  }
+]
