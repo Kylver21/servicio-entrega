@@ -7,7 +7,7 @@
   },
   {
     "nombre": "Kindle Paperwhite",
-    "imagenUrl": "https://m.media-amazon.com/images/I/61nRZTfPYbL._AC_SL1000_.jpg",
+    "imagenUrl": "https://unaluka.com/cdn/shop/files/resizedImg_1000x1000_1_daf43c1a-cd85-4725-88ab-c8781a78709b.jpg?v=1745418719",
     "precio": 129.99,
     "categoria": "Electrónica"
   },
@@ -19,19 +19,19 @@
   },
   {
     "nombre": "Samsung Galaxy S23",
-    "imagenUrl": "https://m.media-amazon.com/images/I/71qZyM7nHIL._AC_SL1500_.jpg",
+    "imagenUrl": "https://media.falabella.com/falabellaPE/134146514_01/w=800,h=800,fit=pad",
     "precio": 799.99,
     "categoria": "Celulares"
   },
   {
     "nombre": "Instant Pot Duo 7-en-1",
-    "imagenUrl": "https://m.media-amazon.com/images/I/81iBESgq5-L._AC_SL1500_.jpg",
+    "imagenUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaUC_C9mlfdg2uEypxsP8cBjZytMZnNC1Lvw&s",
     "precio": 89.99,
     "categoria": "Cocina"
   },
   {
     "nombre": "Fitbit Charge 5",
-    "imagenUrl": "https://m.media-amazon.com/images/I/61VXb-0u5PL._AC_SL1500_.jpg",
+    "imagenUrl": "https://media.falabella.com/falabellaPE/119550403_01/w=1500,h=1500,fit=pad",
     "precio": 149.95,
     "categoria": "Deportes"
   },
