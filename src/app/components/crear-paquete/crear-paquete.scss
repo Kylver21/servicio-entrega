@@ -1,0 +1,411 @@
+// scss/components/_package-creator.scss
+
+// Variables básicas (podrían estar en un archivo _variables.scss global)
+$color-amazon-blue: #232f3e;
+$color-amazon-orange: #ff9900;
+$color-amazon-light-blue: #007185;
+$color-border-gray: #ccc;
+$color-text-dark: #333;
+$color-text-light: #555;
+$color-background-light: #f3f3f3;
+$color-success: #4CAF50;
+$color-warning: #FFC107;
+$color-error: #f44336;
+
+// Mixins para botones (opcional, para reutilizar estilos)
+@mixin button-base {
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #888888;
+    cursor: not-allowed;
+  }
+}
+
+// Contenedor principal de la sección
+.package-creator-section {
+  padding: 40px 0;
+  background-color: $color-background-light;
+  font-family: Arial, sans-serif; // O la fuente principal de Amazon
+  color: $color-text-dark;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .package-creator__title {
+    font-size: 2.2rem;
+    color: $color-amazon-blue;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .package-creator__step {
+    background-color: white;
+    border: 1px solid $color-border-gray;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .package-creator__step-title {
+    font-size: 1.6rem;
+    color: $color-amazon-blue;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; // Espacio entre el número y el texto
+  }
+
+  /* Opciones de Tipo de Paquete */
+  .package-type-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .package-type-btn {
+      @include button-base;
+      flex-direction: column;
+      text-align: center;
+      min-width: 180px;
+      padding: 20px 15px;
+      background-color: $color-amazon-light-blue;
+      color: white;
+      border-color: $color-amazon-light-blue;
+
+      .btn__icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .btn__description {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      &:hover {
+        background-color: darken($color-amazon-light-blue, 10%);
+      }
+    }
+  }
+
+  /* Contenido Principal: Selección de Productos y Resumen */
+  .package-creator__main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; // 2/3 para productos, 1/3 para resumen
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .product-selection-area {
+    background-color: white;
+    border: 1px solid $color-border-gray;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Ajustable para pantallas más pequeñas
+    gap: 20px;
+  }
+
+  .product-card {
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Asegura que todas las tarjetas tengan la misma altura
+
+    &__image {
+      width: 100%;
+      height: 180px; // Altura fija para las imágenes
+      object-fit: contain; // Para que la imagen se ajuste sin distorsionarse
+      border-bottom: 1px solid #eee;
+      padding: 10px;
+    }
+
+    &__info {
+      padding: 15px;
+      flex-grow: 1; // Permite que la info ocupe el espacio restante
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: $color-text-dark;
+    }
+
+    &__price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $color-amazon-orange;
+      margin-bottom: 10px;
+    }
+
+    &__add-btn {
+      @include button-base;
+      background-color: $color-amazon-orange;
+      color: white;
+      border-color: darken($color-amazon-orange, 10%);
+      align-self: flex-start; // Alinea el botón al inicio de la tarjeta
+      width: 100%; // El botón ocupa todo el ancho
+      &:hover {
+        background-color: darken($color-amazon-orange, 10%);
+      }
+    }
+
+    &__quantity-badge {
+      background-color: $color-amazon-light-blue;
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      position: absolute; // Podría posicionarse sobre la imagen o el botón
+      top: 5px; // Ajusta según el diseño
+      right: 5px; // Ajusta según el diseño
+      border: 2px solid white;
+    }
+  }
+
+  .message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+
+    &--warning {
+      background-color: lighten($color-warning, 30%);
+      color: darken($color-warning, 30%);
+      border: 1px solid $color-warning;
+    }
+    .message__icon {
+      font-size: 1.2rem;
+    }
+  }
+
+
+  /* Área de Resumen del Paquete */
+  .package-summary-area {
+    background-color: white;
+    border: 1px solid $color-border-gray;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: fit-content; // Ajusta la altura al contenido
+    position: sticky; // Lo hace "sticky" en la parte superior al hacer scroll
+    top: 20px; // Distancia desde el top
+  }
+
+  .package-summary__content {
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .selected-products-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .selected-product-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      color: $color-text-dark;
+      font-size: 0.95rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .item__index {
+        font-weight: bold;
+        margin-right: 8px;
+        color: $color-amazon-light-blue;
+      }
+      .item__name {
+        flex-grow: 1;
+      }
+      .btn--remove {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      &--placeholder {
+        color: $color-text-light;
+        font-style: italic;
+        .item__index {
+            color: $color-border-gray;
+        }
+      }
+    }
+  }
+
+  .package-summary__info {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-size: 1rem;
+      strong {
+          color: $color-amazon-blue;
+      }
+  }
+
+  /* Paso Final: Personalización y Botón */
+  .package-creator__final-step {
+    @extend .package-creator__step; // Reutiliza estilos del paso general
+    text-align: center; // Centra el botón
+  }
+
+  .package-personalization-options {
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: $color-text-dark;
+    }
+
+    .event-options {
+      display: flex;
+      flex-wrap: wrap; // Permite que los elementos se envuelvan
+      justify-content: center;
+      gap: 15px 30px; // Espacio vertical y horizontal entre opciones
+
+      .event-option {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: $color-text-light;
+
+        input[type="radio"] {
+          margin-right: 8px;
+          transform: scale(1.1); // Hace el radio button un poco más grande
+        }
+
+        &--other {
+          .input-text {
+            border: 1px solid $color-border-gray;
+            border-radius: 4px;
+            padding: 8px 10px;
+            margin-left: 5px;
+            font-size: 1rem;
+            width: 150px; // Ancho fijo para el input
+          }
+        }
+      }
+    }
+  }
+
+  .btn--large {
+    padding: 15px 40px;
+    font-size: 1.15rem;
+  }
+
+  .btn--primary {
+    background-color: $color-amazon-orange;
+    color: white;
+    border-color: darken($color-amazon-orange, 10%);
+    &:hover {
+      background-color: darken($color-amazon-orange, 10%);
+    }
+  }
+
+  .btn--secondary {
+    background-color: #f0c14b;
+    color: $color-amazon-blue;
+    border-color: #a78842;
+    &:hover {
+      background-color: darken(#f0c14b, 5%);
+    }
+  }
+
+  /* Media Queries para Responsividad */
+  @media (max-width: 992px) {
+    .package-creator__main-content {
+      grid-template-columns: 1fr; // Se apilan en pantallas más pequeñas
+    }
+    .package-summary-area {
+        position: static; // Desactiva el sticky en móviles
+    }
+  }
+
+  @media (max-width: 768px) {
+    .package-creator__title {
+      font-size: 1.8rem;
+    }
+    .package-creator__step-title {
+      font-size: 1.4rem;
+    }
+    .package-type-options {
+      flex-direction: column; // Botones de tipo de paquete se apilan
+    }
+    .product-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); // Tarjetas más pequeñas
+    }
+  }
+
+  @media (max-width: 480px) {
+    .package-creator-section {
+      padding: 20px 0;
+    }
+    .package-type-options .package-type-btn {
+      min-width: unset; // Permite que el ancho se ajuste
+    }
+    .package-personalization-options .event-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .event-option--other .input-text {
+        width: 100%;
+    }
+  }
+}

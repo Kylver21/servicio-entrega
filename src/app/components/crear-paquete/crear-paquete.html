@@ -1,0 +1,149 @@
+<section class="package-creator-section">
+  <div class="container">
+    <h1 class="package-creator__title">Crea tu Paquete Personalizado</h1>
+
+    <div id="package-type-selection" class="package-creator__step">
+      <h2 class="package-creator__step-title">1. Elige el tipo de paquete</h2>
+      <div class="package-type-options">
+        <button class="btn btn--primary package-type-btn" data-type="small">
+          <span class="btn__icon">📦</span> Pequeño
+          <span class="btn__description">Ideal para 1-3 artículos pequeños</span>
+        </button>
+        <button class="btn btn--primary package-type-btn" data-type="medium">
+          <span class="btn__icon">🛍️</span> Mediano
+          <span class="btn__description">Para 4-7 artículos medianos</span>
+        </button>
+        <button class="btn btn--primary package-type-btn" data-type="large">
+          <span class="btn__icon">🎁</span> Grande
+          <span class="btn__description">Hasta 10 artículos grandes</span>
+        </button>
+      </div>
+      <button id="btn-next-to-products" class="btn btn--primary" disabled>Siguiente</button>
+    </div>
+
+    <div id="product-selection-step" class="package-creator__step" style="display: none;">
+      <h2 class="package-creator__step-title">
+        2. Elige los productos para tu paquete:
+      </h2>
+      <div class="product-grid" id="available-products-grid">
+        <article class="product-card">
+          <img src="assets/images/product-placeholder-1.jpg" alt="Producto de ejemplo" class="product-card__image">
+          <div class="product-card__info">
+            <h3 class="product-card__title">Reloj Smartwatch Urbano</h3>
+            <p class="product-card__price">$120.00</p>
+            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod001">
+              Agregar al Paquete
+            </button>
+            <span class="product-card__quantity-badge" data-product-id="prod001" style="display: none;">0</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/product-placeholder-2.jpg" alt="Producto de ejemplo" class="product-card__image">
+          <div class="product-card__info">
+            <h3 class="product-card__title">Audífonos Inalámbricos Pro</h3>
+            <p class="product-card__price">$85.00</p>
+            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod002">
+              Agregar al Paquete
+            </button>
+            <span class="product-card__quantity-badge" data-product-id="prod002" style="display: none;">0</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/images/product-placeholder-3.jpg" alt="Producto de ejemplo" class="product-card__image">
+          <div class="product-card__info">
+            <h3 class="product-card__title">Cargador Rápido USB-C</h3>
+            <p class="product-card__price">$25.00</p>
+            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod003">
+              Agregar al Paquete
+            </button>
+            <span class="product-card__quantity-badge" data-product-id="prod003" style="display: none;">0</span>
+          </div>
+        </article>
+      </div>
+      <p id="package-limit-message" class="message message--warning" style="display: none;">
+        <span class="message__icon">⚠️</span> Has alcanzado el límite para este tipo de paquete.
+      </p>
+      <button id="btn-next-to-customize" class="btn btn--primary" disabled>Siguiente</button>
+    </div>
+
+    <div id="package-customization-step" class="package-creator__step" style="display: none;">
+      <h2 class="package-creator__step-title">3. Personaliza tu paquete</h2>
+
+      <div class="package-personalization-options">
+        <h3>Elige un color para tu paquete:</h3>
+        <div class="color-options">
+          <label class="color-option">
+            <input type="radio" name="package-color" value="yellow">
+            <span class="color-circle yellow"></span> Amarillo
+          </label>
+          <label class="color-option">
+            <input type="radio" name="package-color" value="red">
+            <span class="color-circle red"></span> Rojo
+          </label>
+          <label class="color-option">
+            <input type="radio" name="package-color" value="blue">
+            <span class="color-circle blue"></span> Azul
+          </label>
+        </div>
+
+        <h3>¿Es para algún evento en particular? (Opcional)</h3>
+        <div class="event-options">
+          <label class="event-option">
+            <input type="radio" name="event-type" value="none" checked> Ninguno
+          </label>
+          <label class="event-option">
+            <input type="radio" name="event-type" value="birthday"> Cumpleaños
+          </label>
+          <label class="event-option">
+            <input type="radio" name="event-type" value="christmas"> Navidad
+          </label>
+          <label class="event-option">
+            <input type="radio" name="event-type" value="holiday"> Día Festivo
+          </label>
+          <label class="event-option event-option--other">
+            Otro: <input type="text" name="other-event-text" class="input-text">
+          </label>
+        </div>
+      </div>
+      <button id="btn-next-to-message" class="btn btn--primary">Siguiente</button>
+    </div>
+
+    <div id="message-card-step" class="package-creator__step" style="display: none;">
+      <h2 class="package-creator__step-title">4. Agrega una carta con mensaje (Opcional)</h2>
+      <div class="message-card-options">
+        <label>
+          <input type="checkbox" id="add-message-card"> Deseo agregar una carta con mensaje
+        </label>
+        <textarea id="message-card-text" class="input-text" rows="5" placeholder="Escribe tu mensaje aquí..." style="display: none;"></textarea>
+        <p class="message-card-limit" style="display: none;">Máximo 200 caracteres.</p>
+      </div>
+      <button id="btn-create-package-final" class="btn btn--primary btn--large" disabled>
+        <span class="btn__icon">✨</span> Crear Paquete
+      </button>
+    </div>
+
+    <aside class="package-summary-area" style="display: none;">
+      <h2 class="package-creator__step-title">
+        Tu Paquete (<span id="current-item-count">0</span> productos)
+      </h2>
+      <div class="package-summary__content">
+        <ul id="selected-products-list" class="selected-products-list">
+          <li class="selected-product-item selected-product-item--placeholder" id="placeholder-item-1">
+            <span class="item__index">1.</span> <span class="item__name">Agrega tu primer producto...</span>
+            <button class="btn btn--remove" style="display: none;">X</button>
+          </li>
+          <li class="selected-product-item selected-product-item--placeholder" id="placeholder-item-2">
+            <span class="item__index">2.</span> <span class="item__name">Agrega tu segundo producto...</span>
+            <button class="btn btn--remove" style="display: none;">X</button>
+          </li>
+        </ul>
+      </div>
+      <p class="package-summary__info" id="package-auto-type-display" style="display: none;">
+        Tipo de paquete: <strong id="auto-detected-package-type"></strong>
+      </p>
+    </aside>
+
+  </div>
+</section>
