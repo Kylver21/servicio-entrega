@@ -1,71 +1,83 @@
 [
   {
+    "id": "1",
     "nombre": "Echo Dot (5ta Gen)",
     "imagenUrl": "https://mercury.vtexassets.com/arquivos/ids/20551409/ALEXA5TAGE.jpg?v=638795989110500000",
     "precio": 49.99,
     "categoria": "Electrónica"
   },
   {
+    "id": "2",
     "nombre": "Kindle Paperwhite",
-    "imagenUrl": "https://m.media-amazon.com/images/I/61nRZTfPYbL._AC_SL1000_.jpg",
+    "imagenUrl": "https://unaluka.com/cdn/shop/files/resizedImg_1000x1000_1_daf43c1a-cd85-4725-88ab-c8781a78709b.jpg?v=1745418719",
     "precio": 129.99,
     "categoria": "Electrónica"
   },
   {
+    "id": "3",
     "nombre": "Apple AirPods Pro",
     "imagenUrl": "https://m.media-amazon.com/images/I/71bhWgQK-cL._AC_SL1500_.jpg",
     "precio": 199.99,
     "categoria": "Audio"
   },
   {
+    "id": "4",
     "nombre": "Samsung Galaxy S23",
-    "imagenUrl": "https://m.media-amazon.com/images/I/71qZyM7nHIL._AC_SL1500_.jpg",
+    "imagenUrl": "https://www.reuse.pe/cdn/shop/files/63dab5e7cb3cb_s23-5g-rosa-1jpg.jpg?v=1737395254",
     "precio": 799.99,
     "categoria": "Celulares"
   },
   {
+    "id": "5",
     "nombre": "Instant Pot Duo 7-en-1",
-    "imagenUrl": "https://m.media-amazon.com/images/I/81iBESgq5-L._AC_SL1500_.jpg",
+    "imagenUrl": "https://m.media-amazon.com/images/I/71lONZDrnyL.jpg",
     "precio": 89.99,
     "categoria": "Cocina"
   },
   {
+    "id": "6",
     "nombre": "Fitbit Charge 5",
-    "imagenUrl": "https://m.media-amazon.com/images/I/61VXb-0u5PL._AC_SL1500_.jpg",
+    "imagenUrl": "https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3278/PMP20000459960/full_image-1.jpeg",
     "precio": 149.95,
     "categoria": "Deportes"
   },
   {
+    "id": "7",
     "nombre": "Sony WH-1000XM4",
     "imagenUrl": "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
     "precio": 348.0,
     "categoria": "Audio"
   },
   {
+    "id": "8",
     "nombre": "Nintendo Switch",
     "imagenUrl": "https://m.media-amazon.com/images/I/61-PblYntsL._AC_SL1500_.jpg",
     "precio": 299.99,
     "categoria": "Videojuegos"
   },
   {
+    "id": "9",
     "nombre": "Logitech MX Master 3S",
     "imagenUrl": "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
     "precio": 99.99,
     "categoria": "Computadoras"
   },
   {
+    "id": "10",
     "nombre": "Fire TV Stick 4K",
     "imagenUrl": "https://m.media-amazon.com/images/I/51CgKGfMelL._AC_SL1000_.jpg",
     "precio": 39.99,
     "categoria": "Electrónica"
   },
   {
+    "id": "11",
     "nombre": "Mochila Samsonite",
     "imagenUrl": "https://m.media-amazon.com/images/I/81p1L85KinL._AC_SL1500_.jpg",
     "precio": 59.99,
     "categoria": "Accesorios"
   },
   {
+    "id": "12",
     "nombre": "Cafetera Nespresso Vertuo",
     "imagenUrl": "https://m.media-amazon.com/images/I/71Q9d6N7xkL._AC_SL1500_.jpg",
     "precio": 179.0,
