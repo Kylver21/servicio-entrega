@@ -5,6 +5,6 @@ import { ProductList } from "../product-list/product-list";
   selector: "app-home",
   imports: [ProductList],
   templateUrl: "./home.html",
-  styleUrl: "./home.scss",
+  styleUrls: ["./home.scss"], // ← Corrección aquí
 })
 export class Home {}

@@ -9,7 +9,7 @@ import { CommonModule } from "@angular/common";
   selector: "app-product-list",
   imports: [ProductCard, CommonModule],
   templateUrl: "./product-list.html",
-  styleUrl: "./product-list.scss",
+  styleUrls: ["./product-list.scss"],
 })
 export class ProductList {
   productos$: Observable<Producto[]> =
