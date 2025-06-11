@@ -2,40 +2,65 @@
   <div class="container">
     <h1 class="package-creator__title">Crea tu Paquete Personalizado</h1>
 
-    <div id="package-type-selection" class="package-creator__step">
+    <!-- Paso 1: Selección de tipo de paquete -->
+    <div *ngIf="step === 1" id="package-type-selection" class="package-creator__step">
       <h2 class="package-creator__step-title">1. Elige el tipo de paquete</h2>
       <div class="package-type-options">
-        <button class="btn btn--primary package-type-btn" data-type="small">
+        <button class="btn btn--primary package-type-btn"
+                data-type="small"
+                (click)="selectPackageType('small')"
+                [class.selected]="selectedPackageType === 'small'">
           <span class="btn__icon">📦</span> Pequeño
           <span class="btn__description">Ideal para 1-3 artículos pequeños</span>
         </button>
-        <button class="btn btn--primary package-type-btn" data-type="medium">
+        <button class="btn btn--primary package-type-btn"
+                data-type="medium"
+                (click)="selectPackageType('medium')"
+                [class.selected]="selectedPackageType === 'medium'">
           <span class="btn__icon">🛍️</span> Mediano
           <span class="btn__description">Para 4-7 artículos medianos</span>
         </button>
-        <button class="btn btn--primary package-type-btn" data-type="large">
+        <button class="btn btn--primary package-type-btn"
+                data-type="large"
+                (click)="selectPackageType('large')"
+                [class.selected]="selectedPackageType === 'large'">
           <span class="btn__icon">🎁</span> Grande
           <span class="btn__description">Hasta 10 artículos grandes</span>
         </button>
       </div>
-      <button id="btn-next-to-products" class="btn btn--primary" disabled>Siguiente</button>
+      <button id="btn-next-to-products"
+              class="btn btn--primary"
+              [disabled]="!canGoToProducts"
+              (click)="goToProductsStep()">
+        Siguiente
+      </button>
     </div>
 
-    <div id="product-selection-step" class="package-creator__step" style="display: none;">
+    <!-- Paso 2: Selección de productos -->
+    <div *ngIf="step === 2" id="product-selection-step" class="package-creator__step">
       <h2 class="package-creator__step-title">
         2. Elige los productos para tu paquete:
       </h2>
-      <div class="product-grid" id="available-products-grid">
+      <div class="product-grid-home">
         <ng-container *ngIf="productos$ | async as productos; else loading">
-          <article class="product-card" *ngFor="let producto of productos">
-            <img [src]="producto.imagenUrl" alt="{{producto.nombre}}" class="product-card__image">
-            <div class="product-card__info">
-              <h3 class="product-card__title">{{producto.nombre}}</h3>
-              <p class="product-card__price">S/ {{producto.precio}}</p>
-              <button class="btn btn--secondary product-card__add-btn" [attr.data-product-id]="producto.id">
-                Agregar al Paquete
+          <article
+            class="product-card-home selectable"
+            *ngFor="let producto of productos"
+            [class.selected]="isProductSelected(producto)"
+            (click)="toggleProductSelection(producto)"
+          >
+            <img [src]="producto.imagenUrl" alt="{{producto.nombre}}" class="product-card-home__image">
+            <div class="product-card-home__info">
+              <h3 class="product-card-home__title">{{producto.nombre}}</h3>
+              <p class="product-card-home__price">S/ {{producto.precio}}</p>
+              <button
+                type="button"
+                class="btn btn--secondary product-card-home__add-btn"
+                [class.selected-btn]="isProductSelected(producto)"
+                (click)="toggleProductSelection(producto); $event.stopPropagation()"
+              >
+                {{ isProductSelected(producto) ? 'Quitar del Paquete' : 'Agregar al Paquete' }}
               </button>
-              <span class="product-card__quantity-badge" [attr.data-product-id]="producto.id" style="display: none;">0</span>
             </div>
           </article>
         </ng-container>
@@ -43,15 +68,19 @@
           <p>Cargando productos...</p>
         </ng-template>
       </div>
-      <p id="package-limit-message" class="message message--warning" style="display: none;">
-        <span class="message__icon">⚠️</span> Has alcanzado el límite para este tipo de paquete.
-      </p>
-      <button id="btn-next-to-customize" class="btn btn--primary" disabled>Siguiente</button>
+      <button
+        class="btn btn--primary"
+        [disabled]="!canGoToCustomization"
+        (click)="goToCustomizationStep()"
+        style="margin-top: 24px;"
+      >
+        Siguiente
+      </button>
     </div>
 
-    <div id="package-customization-step" class="package-creator__step" style="display: none;">
+    <!-- Paso 3: Personalización del paquete -->
+    <div *ngIf="step === 3" id="package-customization-step" class="package-creator__step">
       <h2 class="package-creator__step-title">3. Personaliza tu paquete</h2>
-
       <div class="package-personalization-options">
         <h3>Elige un color para tu paquete:</h3>
         <div class="color-options">
@@ -88,10 +117,13 @@
           </label>
         </div>
       </div>
-      <button id="btn-next-to-message" class="btn btn--primary">Siguiente</button>
+      <button class="btn btn--primary btn--large" (click)="step = 4">
+        Siguiente
+      </button>
     </div>
 
-    <div id="message-card-step" class="package-creator__step" style="display: none;">
+    <!-- Paso 4: Mensaje personalizado -->
+    <div *ngIf="step === 4" id="message-card-step" class="package-creator__step">
       <h2 class="package-creator__step-title">4. Agrega una carta con mensaje (Opcional)</h2>
       <div class="message-card-options">
         <label>
@@ -105,6 +137,7 @@
       </button>
     </div>
 
+    <!-- Resumen del paquete -->
     <aside class="package-summary-area" style="display: none;">
       <h2 class="package-creator__step-title">
         Tu Paquete (<span id="current-item-count">0</span> productos)

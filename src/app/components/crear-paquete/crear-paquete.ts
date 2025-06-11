@@ -14,9 +14,44 @@ import { Producto } from '../../models/producto.model';
 export class CrearPaqueteComponent {
   productos$: Observable<Producto[]> = inject(ProductoService).obtenerProductos();
 
-  showPackageTypeSelection: boolean = false;
+  selectedPackageType: string | null = null;
+  step: number = 1;
+  selectedProducts: Producto[] = [];
 
-  constructor() {
-    console.log('Componente CrearPaqueteComponent ha sido creado.');
+  get canGoToProducts(): boolean {
+    return !!this.selectedPackageType;
+  }
+
+  get canGoToCustomization(): boolean {
+    return this.selectedProducts.length > 0;
+  }
+
+  selectPackageType(type: string) {
+    this.selectedPackageType = type;
+  }
+
+  goToProductsStep() {
+    if (this.canGoToProducts) {
+      this.step = 2;
+    }
+  }
+
+  goToCustomizationStep() {
+    if (this.canGoToCustomization) {
+      this.step = 3;
+    }
+  }
+
+  toggleProductSelection(producto: Producto) {
+    const idx = this.selectedProducts.findIndex(p => p.id === producto.id);
+    if (idx > -1) {
+      this.selectedProducts.splice(idx, 1);
+    } else {
+      this.selectedProducts.push(producto);
+    }
+  }
+
+  isProductSelected(producto: Producto): boolean {
+    return this.selectedProducts.some(p => p.id === producto.id);
   }
 }
