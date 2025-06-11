@@ -157,55 +157,59 @@ body {
   }
 
   .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 24px 0;
+    align-items: flex-start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .product-card {
-    border: 1px solid $amazon-border-grey;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: $amazon-white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    min-width: 240px;
+    max-width: 260px;
+    margin: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
       border-color: $amazon-orange;
     }
 
     &__image {
-      width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: contain;
+      background: #fafafa;
       padding: 10px;
       border-bottom: 1px solid $amazon-border-grey;
     }
 
     &__info {
-      padding: 15px;
-      flex-grow: 1;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
     }
 
     &__title {
       font-size: 1.1rem;
-      margin-bottom: 8px;
+      font-weight: 600;
       color: $amazon-blue-link;
-      font-weight: 500;
+      margin-bottom: 8px;
+      text-align: center;
     }
 
     &__price {
+      color: $amazon-orange;
       font-size: 1.2rem;
       font-weight: bold;
-      color: $amazon-black;
       margin-bottom: 10px;
     }
 

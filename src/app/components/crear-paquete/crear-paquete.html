@@ -26,41 +26,22 @@
         2. Elige los productos para tu paquete:
       </h2>
       <div class="product-grid" id="available-products-grid">
-        <article class="product-card">
-          <img src="assets/images/product-placeholder-1.jpg" alt="Producto de ejemplo" class="product-card__image">
-          <div class="product-card__info">
-            <h3 class="product-card__title">Reloj Smartwatch Urbano</h3>
-            <p class="product-card__price">$120.00</p>
-            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod001">
-              Agregar al Paquete
-            </button>
-            <span class="product-card__quantity-badge" data-product-id="prod001" style="display: none;">0</span>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="assets/images/product-placeholder-2.jpg" alt="Producto de ejemplo" class="product-card__image">
-          <div class="product-card__info">
-            <h3 class="product-card__title">Audífonos Inalámbricos Pro</h3>
-            <p class="product-card__price">$85.00</p>
-            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod002">
-              Agregar al Paquete
-            </button>
-            <span class="product-card__quantity-badge" data-product-id="prod002" style="display: none;">0</span>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="assets/images/product-placeholder-3.jpg" alt="Producto de ejemplo" class="product-card__image">
-          <div class="product-card__info">
-            <h3 class="product-card__title">Cargador Rápido USB-C</h3>
-            <p class="product-card__price">$25.00</p>
-            <button class="btn btn--secondary product-card__add-btn" data-product-id="prod003">
-              Agregar al Paquete
-            </button>
-            <span class="product-card__quantity-badge" data-product-id="prod003" style="display: none;">0</span>
-          </div>
-        </article>
+        <ng-container *ngIf="productos$ | async as productos; else loading">
+          <article class="product-card" *ngFor="let producto of productos">
+            <img [src]="producto.imagenUrl" alt="{{producto.nombre}}" class="product-card__image">
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{producto.nombre}}</h3>
+              <p class="product-card__price">S/ {{producto.precio}}</p>
+              <button class="btn btn--secondary product-card__add-btn" [attr.data-product-id]="producto.id">
+                Agregar al Paquete
+              </button>
+              <span class="product-card__quantity-badge" [attr.data-product-id]="producto.id" style="display: none;">0</span>
+            </div>
+          </article>
+        </ng-container>
+        <ng-template #loading>
+          <p>Cargando productos...</p>
+        </ng-template>
       </div>
       <p id="package-limit-message" class="message message--warning" style="display: none;">
         <span class="message__icon">⚠️</span> Has alcanzado el límite para este tipo de paquete.
