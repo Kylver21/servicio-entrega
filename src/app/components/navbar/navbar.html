@@ -1,6 +1,6 @@
 <nav class="amazon-navbar">
   <div class="navbar-logo">
-    <a href="#">
+    <a routerLink="/">
       <img
         alt="Amazon Logo Blanco"
         src="assets/logoAmazon-removebg.png"
@@ -46,10 +46,15 @@
     </a>
   </div>
 
-  <!-- Nuevo botón "Crear Paquete" -->
-  <div class="navbar-create-package">
-    <button class="create-package-btn" routerLink="/crear-paquete">
+  <!-- Botones de navegación -->
+  <div class="navbar-actions">
+    <button class="action-btn" routerLink="/crear-paquete">
+      <i class="fa-solid fa-plus"></i>
       Crear Paquete
+    </button>
+    <button class="action-btn secondary" routerLink="/historial">
+      <i class="fa-solid fa-history"></i>
+      Historial
     </button>
   </div>
 </nav>
